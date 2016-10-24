@@ -39,5 +39,10 @@ namespace MSWordDocument
             newWord.ActiveDocument.Close();
             newWord.Quit();
         }
+
+        private void TitleBookmarks_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

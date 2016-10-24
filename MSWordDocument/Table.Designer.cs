@@ -30,11 +30,12 @@
         {
             this.AddTable = new System.Windows.Forms.Button();
             this.FillRows = new System.Windows.Forms.Button();
+            this.TitleBookmarks = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTable
             // 
-            this.AddTable.Location = new System.Drawing.Point(53, 52);
+            this.AddTable.Location = new System.Drawing.Point(22, 49);
             this.AddTable.Name = "AddTable";
             this.AddTable.Size = new System.Drawing.Size(103, 29);
             this.AddTable.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // FillRows
             // 
-            this.FillRows.Location = new System.Drawing.Point(194, 55);
+            this.FillRows.Location = new System.Drawing.Point(290, 55);
             this.FillRows.Name = "FillRows";
             this.FillRows.Size = new System.Drawing.Size(88, 23);
             this.FillRows.TabIndex = 1;
@@ -52,14 +53,25 @@
             this.FillRows.UseVisualStyleBackColor = true;
             this.FillRows.Click += new System.EventHandler(this.FillRows_Click);
             // 
-            // Form1
+            // TitleBookmarks
+            // 
+            this.TitleBookmarks.Location = new System.Drawing.Point(144, 55);
+            this.TitleBookmarks.Name = "TitleBookmarks";
+            this.TitleBookmarks.Size = new System.Drawing.Size(124, 23);
+            this.TitleBookmarks.TabIndex = 2;
+            this.TitleBookmarks.Text = "Add Title & Bookmarks";
+            this.TitleBookmarks.UseVisualStyleBackColor = true;
+            this.TitleBookmarks.Click += new System.EventHandler(this.TitleBookmarks_Click);
+            // 
+            // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 323);
+            this.Controls.Add(this.TitleBookmarks);
             this.Controls.Add(this.FillRows);
             this.Controls.Add(this.AddTable);
-            this.Name = "Form1";
+            this.Name = "Table";
             this.Text = "Table";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
@@ -70,6 +82,7 @@
 
         private System.Windows.Forms.Button AddTable;
         private System.Windows.Forms.Button FillRows;
+        private System.Windows.Forms.Button TitleBookmarks;
     }
 }
 

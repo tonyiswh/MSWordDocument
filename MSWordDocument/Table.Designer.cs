@@ -32,6 +32,7 @@
             this.FillRows = new System.Windows.Forms.Button();
             this.TitleBookmarks = new System.Windows.Forms.Button();
             this.AddRow = new System.Windows.Forms.Button();
+            this.CopyTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTable
@@ -74,11 +75,22 @@
             this.AddRow.UseVisualStyleBackColor = true;
             this.AddRow.Click += new System.EventHandler(this.AddRow_Click);
             // 
+            // CopyTable
+            // 
+            this.CopyTable.Location = new System.Drawing.Point(22, 216);
+            this.CopyTable.Name = "CopyTable";
+            this.CopyTable.Size = new System.Drawing.Size(88, 23);
+            this.CopyTable.TabIndex = 4;
+            this.CopyTable.Text = "Copy Table";
+            this.CopyTable.UseVisualStyleBackColor = true;
+            this.CopyTable.Click += new System.EventHandler(this.CopyTable_Click);
+            // 
             // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 323);
+            this.Controls.Add(this.CopyTable);
             this.Controls.Add(this.AddRow);
             this.Controls.Add(this.TitleBookmarks);
             this.Controls.Add(this.FillRows);
@@ -96,6 +108,7 @@
         private System.Windows.Forms.Button FillRows;
         private System.Windows.Forms.Button TitleBookmarks;
         private System.Windows.Forms.Button AddRow;
+        private System.Windows.Forms.Button CopyTable;
     }
 }
 

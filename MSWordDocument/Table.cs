@@ -31,7 +31,7 @@ namespace MSWordDocument
         private void AddTable_Click(object sender, EventArgs e)
         {
             Microsoft.Office.Interop.Word.Range range = newWord.Selection.Range;
-            Microsoft.Office.Interop.Word.Table table = newWord.ActiveDocument.Tables.Add(range, 10, 4);
+            Microsoft.Office.Interop.Word.Table table = newWord.ActiveDocument.Tables.Add(range, 10, 4, Microsoft.Office.Interop.Word.WdDefaultTableBehavior.wdWord8TableBehavior, Microsoft.Office.Interop.Word.WdAutoFitBehavior.wdAutoFitWindow);
             table.Range.Font.Size = 12;
            
             //table.set_Style("Light Shading - Accent 3");
@@ -109,10 +109,13 @@ namespace MSWordDocument
 
         private void AddRow_Click(object sender, EventArgs e)
         {
+            GetCurrentTable();
+
             int rowCount = currentTable.Rows.Count;
             Microsoft.Office.Interop.Word.Range range = currentTable.Rows[rowCount].Cells[1].Range;
 
-            currentTable.Rows.Add();
+            
+            currentTable.Rows.Add(); //add a last row
 
 
             dynamic ed = new ExpandoObject();
@@ -126,6 +129,14 @@ namespace MSWordDocument
 
         private void CopyTable_Click(object sender, EventArgs e)
         {
+            foreach (Microsoft.Office.Interop.Word.Table tempTable in newWord.ActiveDocument.Tables)
+            {
+                if (newWord.Selection.Range.InRange(tempTable.Range))
+                {
+                    currentTable = tempTable;
+                }
+            }
+
             //currentTable.Range.Select();
             //currentTable.Range.Copy();
             //newWord.Selection.Collapse(Microsoft.Office.Interop.Word.WdCollapseDirection.wdCollapseEnd);
@@ -135,15 +146,98 @@ namespace MSWordDocument
             //newWord.Selection.Range.Paste();
 
             currentTable.Range.Select();
+            dynamic styleDyn = currentTable.get_Style();
+            string styleName = styleDyn.NameLocal;
+            string id = currentTable.ID;
+
             Microsoft.Office.Interop.Word.Range rangeText = currentTable.Range.FormattedText;
+            string text = rangeText.XML;
+
+            text = text.Replace("#aaa#", "New AAA");
+            text = text.Replace("#bbb#", "New BBB");
             newWord.Selection.Collapse(Microsoft.Office.Interop.Word.WdCollapseDirection.wdCollapseEnd);
             newWord.Selection.TypeParagraph();
             newWord.Selection.TypeParagraph();
-            newWord.Selection.Range.FormattedText = rangeText;
-            string xml =newWord.Selection.Range.XML;
+            //newWord.Selection.Range.FormattedText = rangeText;
+           
+            newWord.Selection.Range.InsertXML(text);            
+            currentTable = newWord.Selection.Tables[1];
+            currentTable.set_Style(styleName);
+            currentTable.ID = id + "2";
+
+            //string xml = rangeText.XML;
+            //Console.Write(xml);
+        }
+
+        private void AddColumn_Click(object sender, EventArgs e)
+        {
+            float height = newWord.ActiveDocument.PageSetup.PageHeight - 50;
+            float width = newWord.ActiveDocument.PageSetup.PageWidth - 100;
+
+            GetCurrentTable();
+            currentTable.Columns.Add(); //add a last column
+            //currentTable.Columns.DistributeWidth();
+
+            //Not working
+            //width = width / currentTable.Columns.Count;
+            //currentTable.Columns.PreferredWidthType = Microsoft.Office.Interop.Word.WdPreferredWidthType.wdPreferredWidthPoints;
+            //currentTable.Columns.PreferredWidth = width;
+
+            //currentTable.Columns[currentTable.Columns.Count].SetWidth(40, Microsoft.Office.Interop.Word.WdRulerStyle.wdAdjustProportional);
+            currentTable.Columns[currentTable.Columns.Count].SetWidth(40, Microsoft.Office.Interop.Word.WdRulerStyle.wdAdjustSameWidth);
+        }
+
+        private void GetCurrentTable()
+        {
+            foreach (Microsoft.Office.Interop.Word.Table tempTable in newWord.ActiveDocument.Tables)
+            {
+                if (newWord.Selection.Range.InRange(tempTable.Range))
+                {
+                    currentTable = tempTable;
+                }
+            }
+        }
+
+        private void AddMoreRows_Click(object sender, EventArgs e)
+        {
+            GetCurrentTable();
+            currentTable.AllowAutoFit = false;
+
+
+            //Microsoft.Office.Interop.Word.WdViewType viewtype = newWord.ActiveWindow.View.Type;
+            //bool pagination = newWord.Options.Pagination;
+            //bool screenUpdating = newWord.ScreenUpdating;
+
+
+            for (int i = 0; i < 100; i++)
+            {
+                int rowIndex = currentTable.Rows.Count - 2;
+
+                currentTable.Rows.Add(currentTable.Rows[rowIndex]);
+                currentTable.Rows[rowIndex].Cells[1].Range.Text = "Cell1 " + i.ToString();
+                currentTable.Rows[rowIndex].Cells[2].Range.Text = "Cell2 " + i.ToString();
+                currentTable.Rows[rowIndex].Cells[3].Range.Text = "Cell3 " + i.ToString();
+                currentTable.Cell(rowIndex, 4).Range.Text = "Cell4 " + i.ToString();
+            }
+
+            //newWord.ActiveWindow.View.Type = viewtype;
+            //newWord.Options.Pagination = pagination;
+            //newWord.ScreenUpdating = screenUpdating;
+
+            currentTable.Rows[currentTable.Rows.Count - 1].Cells[1].Range.Text = "Done";
+        }
+
+        private void SelectRow_Click(object sender, EventArgs e)
+        {
+            GetCurrentTable();
+
+            currentTable.Rows[3].Select();
+            string xml = newWord.Selection.Range.XML;
             Console.Write(xml);
         }
     }
+
+    
 }
 
 ////Get the Word range from the form's point location 

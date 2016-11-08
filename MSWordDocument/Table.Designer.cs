@@ -33,6 +33,9 @@
             this.TitleBookmarks = new System.Windows.Forms.Button();
             this.AddRow = new System.Windows.Forms.Button();
             this.CopyTable = new System.Windows.Forms.Button();
+            this.AddColumn = new System.Windows.Forms.Button();
+            this.AddMoreRows = new System.Windows.Forms.Button();
+            this.SelectRow = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTable
@@ -85,11 +88,44 @@
             this.CopyTable.UseVisualStyleBackColor = true;
             this.CopyTable.Click += new System.EventHandler(this.CopyTable_Click);
             // 
+            // AddColumn
+            // 
+            this.AddColumn.Location = new System.Drawing.Point(119, 84);
+            this.AddColumn.Name = "AddColumn";
+            this.AddColumn.Size = new System.Drawing.Size(75, 23);
+            this.AddColumn.TabIndex = 5;
+            this.AddColumn.Text = "Add Column";
+            this.AddColumn.UseVisualStyleBackColor = true;
+            this.AddColumn.Click += new System.EventHandler(this.AddColumn_Click);
+            // 
+            // AddMoreRows
+            // 
+            this.AddMoreRows.Location = new System.Drawing.Point(215, 84);
+            this.AddMoreRows.Name = "AddMoreRows";
+            this.AddMoreRows.Size = new System.Drawing.Size(121, 23);
+            this.AddMoreRows.TabIndex = 6;
+            this.AddMoreRows.Text = "Add More Rows";
+            this.AddMoreRows.UseVisualStyleBackColor = true;
+            this.AddMoreRows.Click += new System.EventHandler(this.AddMoreRows_Click);
+            // 
+            // SelectRow
+            // 
+            this.SelectRow.Location = new System.Drawing.Point(155, 49);
+            this.SelectRow.Name = "SelectRow";
+            this.SelectRow.Size = new System.Drawing.Size(75, 23);
+            this.SelectRow.TabIndex = 7;
+            this.SelectRow.Text = "Select Row";
+            this.SelectRow.UseVisualStyleBackColor = true;
+            this.SelectRow.Click += new System.EventHandler(this.SelectRow_Click);
+            // 
             // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 323);
+            this.Controls.Add(this.SelectRow);
+            this.Controls.Add(this.AddMoreRows);
+            this.Controls.Add(this.AddColumn);
             this.Controls.Add(this.CopyTable);
             this.Controls.Add(this.AddRow);
             this.Controls.Add(this.TitleBookmarks);
@@ -109,6 +145,9 @@
         private System.Windows.Forms.Button TitleBookmarks;
         private System.Windows.Forms.Button AddRow;
         private System.Windows.Forms.Button CopyTable;
+        private System.Windows.Forms.Button AddColumn;
+        private System.Windows.Forms.Button AddMoreRows;
+        private System.Windows.Forms.Button SelectRow;
     }
 }
 

@@ -36,6 +36,7 @@
             this.AddColumn = new System.Windows.Forms.Button();
             this.AddMoreRows = new System.Windows.Forms.Button();
             this.SelectRow = new System.Windows.Forms.Button();
+            this.ChackBox = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTable
@@ -118,11 +119,22 @@
             this.SelectRow.UseVisualStyleBackColor = true;
             this.SelectRow.Click += new System.EventHandler(this.SelectRow_Click);
             // 
+            // ChackBox
+            // 
+            this.ChackBox.Location = new System.Drawing.Point(278, 147);
+            this.ChackBox.Name = "ChackBox";
+            this.ChackBox.Size = new System.Drawing.Size(75, 23);
+            this.ChackBox.TabIndex = 8;
+            this.ChackBox.Text = "Check Box";
+            this.ChackBox.UseVisualStyleBackColor = true;
+            this.ChackBox.Click += new System.EventHandler(this.ChackBox_Click);
+            // 
             // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 323);
+            this.Controls.Add(this.ChackBox);
             this.Controls.Add(this.SelectRow);
             this.Controls.Add(this.AddMoreRows);
             this.Controls.Add(this.AddColumn);
@@ -148,6 +160,7 @@
         private System.Windows.Forms.Button AddColumn;
         private System.Windows.Forms.Button AddMoreRows;
         private System.Windows.Forms.Button SelectRow;
+        private System.Windows.Forms.Button ChackBox;
     }
 }
 

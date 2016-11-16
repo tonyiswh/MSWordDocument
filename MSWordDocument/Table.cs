@@ -16,7 +16,7 @@ namespace MSWordDocument
     {
         private Microsoft.Office.Interop.Word.Application newWord = new Microsoft.Office.Interop.Word.Application();
         private Microsoft.Office.Interop.Word.Table currentTable;
-        private string path = @"C:\Temp\TryWord.dotx";
+        private string path = @"C:\Temp\TryDocs\TryWord.dotx";
 
         public Table()
         {
@@ -235,6 +235,40 @@ namespace MSWordDocument
             string xml = newWord.Selection.Range.XML;
             Console.Write(xml);
         }
+
+        private void ChackBox_Click(object sender, EventArgs e)
+        {
+
+            newWord.ActiveDocument.FormFields["Check2"].CheckBox.Value = true;
+
+            /////////not working in select a bookmark than checkbox field 
+            //Microsoft.Office.Interop.Word.Bookmark bookmark = newWord.ActiveDocument.Bookmarks["Check2"];            
+            //bookmark.Range.Select();          
+            //var conControl = bookmark.Range.Fields[1];
+            //if (conControl.Type == Microsoft.Office.Interop.Word.WdFieldType.wdFieldFormCheckBox)
+            //{
+                
+                
+            //}
+
+            newWord.ActiveDocument.FormFields["Check2"].CheckBox.Value = true;
+
+            if (newWord.ActiveDocument.FormFields[1].Type == Microsoft.Office.Interop.Word.WdFieldType.wdFieldFormCheckBox)
+            {
+                newWord.ActiveDocument.FormFields[1].CheckBox.Value = true;
+            }
+
+            newWord.Selection.Move(Microsoft.Office.Interop.Word.WdUnits.wdCharacter, 1);
+
+
+
+            //Add a new checkbox and check it
+            var newControl = newWord.ActiveDocument.FormFields.Add(newWord.Selection.Range, Microsoft.Office.Interop.Word.WdFieldType.wdFieldFormCheckBox);
+            newControl.CheckBox.Value = true;
+
+            
+        }
+
     }
 
     

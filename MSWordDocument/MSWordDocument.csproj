@@ -40,6 +40,10 @@
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,26 +61,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenXML.cs">
+    <Compile Include="OpenXML1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpenXML.Designer.cs">
-      <DependentUpon>OpenXML.cs</DependentUpon>
+    <Compile Include="OpenXML1.Designer.cs">
+      <DependentUpon>OpenXML1.cs</DependentUpon>
     </Compile>
     <Compile Include="TableBookmark.cs" />
-    <Compile Include="Table.cs">
+    <Compile Include="Table1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Table.Designer.cs">
-      <DependentUpon>Table.cs</DependentUpon>
+    <Compile Include="Table1.Designer.cs">
+      <DependentUpon>Table1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="OpenXML.resx">
-      <DependentUpon>OpenXML.cs</DependentUpon>
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="OpenXML1.resx">
+      <DependentUpon>OpenXML1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Table.resx">
-      <DependentUpon>Table.cs</DependentUpon>
+    <EmbeddedResource Include="Table1.resx">
+      <DependentUpon>Table1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,7 +110,7 @@
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
-      <VersionMinor>4</VersionMinor>
+      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -114,7 +119,7 @@
     <COMReference Include="Microsoft.Office.Interop.Word">
       <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>8</VersionMajor>
-      <VersionMinor>4</VersionMinor>
+      <VersionMinor>5</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>

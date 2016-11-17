@@ -12,13 +12,13 @@ using System.Dynamic;
 
 namespace MSWordDocument
 {
-    public partial class Table : Form
+    public partial class Table1 : Form
     {
         private Microsoft.Office.Interop.Word.Application newWord = new Microsoft.Office.Interop.Word.Application();
         private Microsoft.Office.Interop.Word.Table currentTable;
         private string path = @"C:\Temp\TryDocs\TryWord.dotx";
 
-        public Table()
+        public Table1()
         {
             InitializeComponent();
 

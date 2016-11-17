@@ -1,6 +1,6 @@
 ﻿namespace MSWordDocument
 {
-    partial class Table
+    partial class Table1
     {
         /// <summary>
         /// Required designer variable.

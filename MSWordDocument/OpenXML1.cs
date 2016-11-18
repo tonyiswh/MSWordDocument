@@ -166,9 +166,12 @@ namespace MSWordDocument
                 var tables = wpdocuments.MainDocumentPart.Document.Descendants<Table>().ToList();
                 var tables2 = wpdocuments.MainDocumentPart.Document.Body.Elements<Table>().First();
 
+                
 
                 var tRowList = tables2.Descendants<TableRow>().ToList();
                 TableRow tr = tRowList[1];
+
+                int colCount = tr.Descendants<TableCell>().ToList().Count;
 
                 for (int i = 0; i < 100; i++)
                 {

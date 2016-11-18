@@ -22,8 +22,8 @@ namespace MSWordDocument
         {
             InitializeComponent();
 
-            //newWord.Documents.Open(FileName: (path));
-            newWord.Documents.Add(path);
+            newWord.Documents.Open(FileName: (path));
+            //newWord.Documents.Add(path);
             //newWord.Documents.Open();
             newWord.Visible = true;
         }
@@ -202,7 +202,7 @@ namespace MSWordDocument
         {
             GetCurrentTable();
             currentTable.AllowAutoFit = false;
-
+           
 
             //Microsoft.Office.Interop.Word.WdViewType viewtype = newWord.ActiveWindow.View.Type;
             //bool pagination = newWord.Options.Pagination;
@@ -238,6 +238,9 @@ namespace MSWordDocument
 
         private void ChackBox_Click(object sender, EventArgs e)
         {
+            GetCurrentTable();
+
+            string idtitle = currentTable.Title;            
 
             newWord.ActiveDocument.FormFields["Check2"].CheckBox.Value = true;
 

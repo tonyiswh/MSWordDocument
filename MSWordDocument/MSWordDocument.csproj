@@ -44,6 +44,10 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NReco.PivotData, Version=1.3.3.0, Culture=neutral, PublicKeyToken=9ad162d4af1a824f, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PivotData.1.3.3\lib\net40\NReco.PivotData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,12 +65,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellInfo.cs" />
     <Compile Include="OpenXML1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OpenXML1.Designer.cs">
       <DependentUpon>OpenXML1.cs</DependentUpon>
     </Compile>
+    <Compile Include="RowInfo.cs" />
     <Compile Include="TableBookmark.cs" />
     <Compile Include="Table1.cs">
       <SubType>Form</SubType>
@@ -76,6 +82,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableInfo.cs" />
+    <Compile Include="TryPivot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TryPivot.Designer.cs">
+      <DependentUpon>TryPivot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="OpenXML1.resx">
       <DependentUpon>OpenXML1.cs</DependentUpon>
@@ -92,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TryPivot.resx">
+      <DependentUpon>TryPivot.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

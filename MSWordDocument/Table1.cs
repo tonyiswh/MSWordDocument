@@ -272,6 +272,42 @@ namespace MSWordDocument
             
         }
 
+        private void Dialog_Click(object sender, EventArgs e)
+        {
+
+
+            Microsoft.Office.Interop.Word.Dialog dialogBox = newWord.Dialogs[Microsoft.Office.Interop.Word.WdWordDialog.wdDialogEditReplace];
+
+            dialogBox.Show();
+        }
+
+        private void CurrentSelection_Click(object sender, EventArgs e)
+        {
+            //get current cursor code text
+            string fullText = newWord.Selection.Sentences[1].Text;
+
+            string currentText = newWord.Selection.Range.Words[1].Text;
+
+            int index = fullText.IndexOf(currentText);
+            string firstPart = fullText.Substring(0, index);
+            int firstIndex = firstPart.LastIndexOf("{{", firstPart.Length) + 2;
+
+            int secondIndex = fullText.IndexOf("}}", index);
+
+            string codeText = null;
+            if (firstIndex > 0 && secondIndex > 0 && firstIndex < secondIndex)
+            {
+                codeText = fullText.Substring(firstIndex, secondIndex - firstIndex);
+
+                if (codeText.Contains("{{") || codeText.Contains("}}"))
+                {
+                    codeText = null;
+                }
+            }
+
+            Console.WriteLine(codeText);
+            newWord.Application.StatusBar = "Code text: " + codeText;
+        }
     }
 
     

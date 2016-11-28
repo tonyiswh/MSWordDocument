@@ -46,10 +46,7 @@ namespace MSWordDocument
             //dataGridView1.Show();
 
             var pivotData = new PivotData(new string[] { "chardate", "country"}, new SumAggregatorFactory("totalamount"), new DataTableReader(dt));
-            var pivotData2 = new PivotData(new string[] { "chardate", "country" }, new SumAggregatorFactory("totalCount"), new DataTableReader(dt));
-
-            pivotData.Merge(pivotData2);
-
+           
             var grandTotal = pivotData[Key.Empty, Key.Empty].Value;
             var subTotalFor29 = pivotData[Key.Empty, 29].Value;
             var allDimensionKeys = pivotData.GetDimensionKeys();

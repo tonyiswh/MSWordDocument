@@ -16,7 +16,7 @@ namespace MSWordDocument
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TryPivot());
+            Application.Run(new QueryBuilderTest());
         }
     }
 }

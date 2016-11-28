@@ -37,6 +37,8 @@
             this.AddMoreRows = new System.Windows.Forms.Button();
             this.SelectRow = new System.Windows.Forms.Button();
             this.ChackBox = new System.Windows.Forms.Button();
+            this.Dialog = new System.Windows.Forms.Button();
+            this.CurrentSelection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddTable
@@ -129,11 +131,33 @@
             this.ChackBox.UseVisualStyleBackColor = true;
             this.ChackBox.Click += new System.EventHandler(this.ChackBox_Click);
             // 
-            // Table
+            // Dialog
+            // 
+            this.Dialog.Location = new System.Drawing.Point(278, 198);
+            this.Dialog.Name = "Dialog";
+            this.Dialog.Size = new System.Drawing.Size(75, 23);
+            this.Dialog.TabIndex = 9;
+            this.Dialog.Text = "Dialog";
+            this.Dialog.UseVisualStyleBackColor = true;
+            this.Dialog.Click += new System.EventHandler(this.Dialog_Click);
+            // 
+            // CurrentSelection
+            // 
+            this.CurrentSelection.Location = new System.Drawing.Point(241, 241);
+            this.CurrentSelection.Name = "CurrentSelection";
+            this.CurrentSelection.Size = new System.Drawing.Size(112, 23);
+            this.CurrentSelection.TabIndex = 10;
+            this.CurrentSelection.Text = "Current Selection";
+            this.CurrentSelection.UseVisualStyleBackColor = true;
+            this.CurrentSelection.Click += new System.EventHandler(this.CurrentSelection_Click);
+            // 
+            // Table1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 323);
+            this.Controls.Add(this.CurrentSelection);
+            this.Controls.Add(this.Dialog);
             this.Controls.Add(this.ChackBox);
             this.Controls.Add(this.SelectRow);
             this.Controls.Add(this.AddMoreRows);
@@ -143,7 +167,7 @@
             this.Controls.Add(this.TitleBookmarks);
             this.Controls.Add(this.FillRows);
             this.Controls.Add(this.AddTable);
-            this.Name = "Table";
+            this.Name = "Table1";
             this.Text = "Table";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
@@ -161,6 +185,8 @@
         private System.Windows.Forms.Button AddMoreRows;
         private System.Windows.Forms.Button SelectRow;
         private System.Windows.Forms.Button ChackBox;
+        private System.Windows.Forms.Button Dialog;
+        private System.Windows.Forms.Button CurrentSelection;
     }
 }
 

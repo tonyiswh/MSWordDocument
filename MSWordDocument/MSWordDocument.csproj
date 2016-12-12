@@ -36,16 +36,10 @@
     <StartupObject>MSWordDocument.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ActiveQueryBuilder.Core, Version=3.2.1.1031, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
-      <HintPath>..\packages\ActiveQueryBuilder.Core.3.2.1.1031\lib\net\ActiveQueryBuilder.Core.dll</HintPath>
+    <Reference Include="ActiveQueryBuilder.Core, Version=3.2.0.1030, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
+      <HintPath>..\packages\ActiveQueryBuilder.Core.3.2.0.1030\lib\net\ActiveQueryBuilder.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ActiveQueryBuilder.OLEDBMetadataProvider, Version=3.2.0.1030, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL" />
-    <Reference Include="ActiveQueryBuilder.View, Version=3.2.1.1031, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL">
-      <HintPath>..\packages\ActiveQueryBuilder.View.WinForms.3.2.1.1031\lib\net\ActiveQueryBuilder.View.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ActiveQueryBuilder.View.WinForms, Version=3.2.0.1030, Culture=neutral, PublicKeyToken=3cbcbcc9bf57ecde, processorArchitecture=MSIL" />
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
       <Private>True</Private>
@@ -89,13 +83,13 @@
     <Compile Include="PopupMenuDialog.Designer.cs">
       <DependentUpon>PopupMenuDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="QueryBuilderTest.cs">
+    <Compile Include="RowInfo.cs" />
+    <Compile Include="ScreenDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QueryBuilderTest.Designer.cs">
-      <DependentUpon>QueryBuilderTest.cs</DependentUpon>
+    <Compile Include="ScreenDetails.Designer.cs">
+      <DependentUpon>ScreenDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="RowInfo.cs" />
     <Compile Include="TableBookmark.cs" />
     <Compile Include="Table1.cs">
       <SubType>Form</SubType>
@@ -119,8 +113,8 @@
     <EmbeddedResource Include="PopupMenuDialog.resx">
       <DependentUpon>PopupMenuDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QueryBuilderTest.resx">
-      <DependentUpon>QueryBuilderTest.cs</DependentUpon>
+    <EmbeddedResource Include="ScreenDetails.resx">
+      <DependentUpon>ScreenDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Table1.resx">
       <DependentUpon>Table1.cs</DependentUpon>

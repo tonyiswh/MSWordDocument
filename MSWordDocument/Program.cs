@@ -16,7 +16,7 @@ namespace MSWordDocument
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QueryBuilderTest());
+            Application.Run(new ScreenDetails());
         }
     }
 }

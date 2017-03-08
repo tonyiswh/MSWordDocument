@@ -52,6 +52,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellInfo.cs" />
+    <Compile Include="Formate1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formate1.Designer.cs">
+      <DependentUpon>Formate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenXML1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenXML1.Designer.cs">
+      <DependentUpon>OpenXML1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopupMenuDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopupMenuDialog.Designer.cs">
+      <DependentUpon>PopupMenuDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RowInfo.cs" />
+    <Compile Include="Table1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table1.Designer.cs">
+      <DependentUpon>Table1.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableBookmark.cs" />
     <Compile Include="Table.cs">
       <SubType>Form</SubType>
@@ -61,6 +93,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableInfo.cs" />
+    <Compile Include="TryPivot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TryPivot.Designer.cs">
+      <DependentUpon>TryPivot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="Formate1.resx">
+      <DependentUpon>Formate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenXML1.resx">
+      <DependentUpon>OpenXML1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupMenuDialog.resx">
+      <DependentUpon>PopupMenuDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Table.resx">
       <DependentUpon>Table.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +122,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Table1.resx">
+      <DependentUpon>Table1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TryPivot.resx">
+      <DependentUpon>TryPivot.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

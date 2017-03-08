@@ -71,11 +71,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CellInfo.cs" />
+    <Compile Include="Formate1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formate1.Designer.cs">
+      <DependentUpon>Formate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpenXML1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OpenXML1.Designer.cs">
       <DependentUpon>OpenXML1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
     </Compile>
     <Compile Include="PopupMenuDialog.cs">
       <SubType>Form</SubType>
@@ -107,6 +119,9 @@
       <DependentUpon>TryPivot.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="Formate1.resx">
+      <DependentUpon>Formate1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OpenXML1.resx">
       <DependentUpon>OpenXML1.cs</DependentUpon>
     </EmbeddedResource>

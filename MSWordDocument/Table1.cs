@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop;
 using System.Dynamic;
+using Microsoft.Office.Interop.Word;
 
 namespace MSWordDocument
 {
@@ -283,34 +284,71 @@ namespace MSWordDocument
 
         private void CurrentSelection_Click(object sender, EventArgs e)
         {
-            //get current cursor code text
-            string fullText = newWord.Selection.Sentences[1].Text;
-
-            string currentText = newWord.Selection.Range.Words[1].Text;
-
-            int index = fullText.IndexOf(currentText);
-            string firstPart = fullText.Substring(0, index);
-            int firstIndex = firstPart.LastIndexOf("{{", firstPart.Length) + 2;
-
-            int secondIndex = fullText.IndexOf("}}", index);
-
             string codeText = null;
-            if (firstIndex > 0 && secondIndex > 0 && firstIndex < secondIndex)
-            {
-                codeText = fullText.Substring(firstIndex, secondIndex - firstIndex);
 
-                if (codeText.Contains("{{") || codeText.Contains("}}"))
-                {
-                    codeText = null;
-                }
-            }
+            codeText = GetFieldName();
 
             Console.WriteLine(codeText);
             newWord.Application.StatusBar = "Code text: " + codeText;
         }
+
+        public string GetFieldName()
+        {
+            string codeText = null;
+
+            //get current cursor code text
+            string fullText = newWord.Selection.Sentences[1].Text;
+
+            string currentText = newWord.Selection.Range.Words[1].Text.Trim();
+
+            //var col = newWord.Selection.get_Information(WdInformation.wdFirstCharacterColumnNumber);
+            //var row = newWord.Selection.get_Information(WdInformation.wdEndOfRangeRowNumber);
+            //var pos = newWord.Selection.get_Information(WdInformation.wdHorizontalPositionRelativeToPage);
+
+            if (currentText == "{{" || currentText == "{{}}")
+            {
+                return null;
+            }
+
+            if (currentText == "}}")
+            {
+                newWord.Selection.MoveLeft(WdUnits.wdCharacter, 1);
+                currentText = newWord.Selection.Range.Words[1].Text.Trim();
+                if (currentText == "}}" || currentText == "{{")
+                {
+                    return null;
+                }
+            }
+
+            int index = fullText.IndexOf(currentText) + currentText.Length;
+            string firstPart = fullText.Substring(0, index);
+            int firstIndex = firstPart.LastIndexOf("{{", firstPart.Length);
+
+            if (firstIndex < 0)
+            {
+                codeText = null;
+            }
+            else
+            {
+                firstIndex += 2;
+                int secondIndex = fullText.IndexOf("}}", index);
+
+                if (firstIndex > 0 && secondIndex > 0 && firstIndex < secondIndex)
+                {
+                    codeText = fullText.Substring(firstIndex, secondIndex - firstIndex).Trim();
+
+                    if (codeText.Contains("{{") || codeText.Contains("}}"))
+                    {
+                        codeText = null;
+                    }
+                }
+            }
+
+            return codeText;
+        }
     }
 
-    
+   
 }
 
 ////Get the Word range from the form's point location 
